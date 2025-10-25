@@ -16,18 +16,18 @@ const getDoctor = async (id) => {
     }
 }
 
-const saveDoctor = async ({ name, login, password, medicalRegistration}) => {
+const saveDoctor = async ({ name, login, password, medicalRegistration, email, phone}) => {
     try {
-        const doctor = new Doctor({ name, login, password, medicalRegistration})
+        const doctor = new Doctor({ name, login, password, medicalRegistration, email, phone})
         return await doctor.save();
     } catch (error) {
         throw new Error(error);
     }
 }
 
-const updateDoctor = async (id, { name, login, password, medicalRegistration}) => {
+const updateDoctor = async (id, { name, login, password, medicalRegistration, email, phone}) => {
     try {
-        return await Doctor.findByIdAndUpdate(id, { name, login, password, medicalRegistration})
+        return await Doctor.findByIdAndUpdate(id, { name, login, password, medicalRegistration, email, phone})
     } catch (error) {
         throw new Error(error);
     }

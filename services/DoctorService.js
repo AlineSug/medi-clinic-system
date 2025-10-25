@@ -7,11 +7,11 @@ const getAllDoctors = async () =>{
 const getDoctor = async (id) =>{
     return DoctorRepository.getDoctor(id);
 }
-const saveDoctor = async ({name, login, password, medicalRegistration}) =>{
-    return DoctorRepository.saveDoctor({name, login, password, medicalRegistration});
+const saveDoctor = async ({name, login, password, medicalRegistration, email, phone}) =>{
+    return DoctorRepository.saveDoctor({name, login, password, medicalRegistration, email, phone});
 }
-const updateDoctor = async (id, {name, login, password, medicalRegistration}) =>{
-    return DoctorRepository.updateDoctor(id, { name, login, password, medicalRegistration});
+const updateDoctor = async (id, {name, login, password, medicalRegistration, email, phone}) =>{
+    return DoctorRepository.updateDoctor(id, { name, login, password, medicalRegistration, email, phone});
 }
 
 const deleteDoctor= async (id) =>{
