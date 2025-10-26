@@ -32,7 +32,7 @@ const generatePrescriptionFile = async(prescription) => {
 
     const id = prescription._id;
     const document = new PDFDocument({font: 'Courier'});
-    const filePath = "./prescriptions/"+ id + ".pdf";
+    const filePath = ".MediApp/prescriptions/"+ id + ".pdf";
 
     document.pipe(fs.createWriteStream(filePath));
     document.fontSize(16).text("Pacient Name: " + pacient.name);

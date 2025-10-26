@@ -23,7 +23,7 @@ router.post('/uploadPrescription/:id', upload.single('file'), async (req, res) =
     try {
         const { id } = req.params;
         let prescription = await PrescriptionService.getPrescription(id);
-        const file = "./MediApp/src/prescriptions/" + req.sile.originalname;
+        const file = "./MediApp/prescriptions/" + req.file.originalname;
         prescription = await PrescriptionService.updatePrescription(id, { file });
         return res.status(200).send(prescription);
     } catch (error) {
@@ -105,7 +105,7 @@ router.get('/generatePrescription/:id', async (req, res) => {
     const { id } = req.params;
     try {
         const prescription = await PrescriptionService.getPrescription(id);
-        let generatePrescription = await PrescriptionService.generatePrescription(prescription);
+        const generatePrescription = await PrescriptionService.generatePrescription(prescription);
         const file = "./src/prescriptions/" + id + ".pdf";
         generatePrescription = await PrescriptionService.updatePrescription(id, {file});
 
