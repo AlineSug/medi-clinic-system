@@ -105,11 +105,8 @@ router.get('/generatePrescription/:id', async (req, res) => {
     const { id } = req.params;
     try {
         const prescription = await PrescriptionService.getPrescription(id);
-        const generatePrescription = await PrescriptionService.generatePrescription(prescription);
-        const file = "./src/prescriptions/" + id + ".pdf";
-        generatePrescription = await PrescriptionService.updatePrescription(id, {file});
-
-        res.send(generatePrescription);
+        const generatedPrescription = await PrescriptionService.generatePrescriptionFile(prescription);
+        res.send(generatedPrescription);
     } catch (error) {
        console.error(error);
         res.status(500).send(error);
